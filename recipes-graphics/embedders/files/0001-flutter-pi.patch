@@ -1,0 +1,52 @@
+diff --git a/README.md b/README.md
+index e02fcae..a9ded27 100644
+--- a/README.md
++++ b/README.md
+@@ -317,7 +317,7 @@ EXAMPLES:
+   flutter-pi --release ~/hello_world_app
+   flutter-pi -o portrait_up ./my_app
+   flutter-pi -r 90 ./my_app
+-  flutter-pi -d "155, 86" ./my_app
++  flutter-pi -d "120,60" ./my_app
+ 
+ SEE ALSO:
+   Author:  Hannes Winkler, a.k.a ardera
+diff --git a/src/flutter-pi.c b/src/flutter-pi.c
+index 81ae942..6cea626 100644
+--- a/src/flutter-pi.c
++++ b/src/flutter-pi.c
+@@ -126,7 +126,7 @@ EXAMPLES:\n\
+   flutter-pi --release ~/hello_world_app\n\
+   flutter-pi -o portrait_up ./my_app\n\
+   flutter-pi -r 90 ./my_app\n\
+-  flutter-pi -d \"155, 86\" ./my_app\n\
++  flutter-pi -d \"120,60\" ./my_app\n\
+   flutter-pi -i \"/dev/input/event{0,1}\" -i \"/dev/input/event{2,3}\" /home/pi/helloworld_flutterassets\n\
+   flutter-pi -i \"/dev/input/mouse*\" /home/pi/helloworld_flutterassets\n\
+ \n\
+@@ -1412,8 +1412,8 @@ static int init_display(void) {
+                 {
+                     // if it's connected via DSI, and the width & height are 0,
+                     //   it's probably the official 7 inch touchscreen.
+-                    flutterpi.display.width_mm = 155;
+-                    flutterpi.display.height_mm = 86;
++                    flutterpi.display.width_mm = 120;
++                    flutterpi.display.height_mm = 60;
+                 } else if ((connector->connector->mmHeight % 10 == 0) &&
+                             (connector->connector->mmWidth % 10 == 0)) {
+                     // don't change anything.
+@@ -1813,12 +1813,12 @@ static int init_application(void) {
+ 
+     libflutter_engine_handle = NULL;
+     if (flutterpi.flutter.runtime_mode == kRelease) {
+-        libflutter_engine_handle = dlopen("libflutter_engine.so.release", RTLD_LOCAL | RTLD_NOW);
++        libflutter_engine_handle = dlopen("libflutter_engine.so", RTLD_LOCAL | RTLD_NOW);
+         if (libflutter_engine_handle == NULL) {
+             LOG_ERROR("[flutter-pi] Warning: Could not load libflutter_engine.so.release: %s. Trying to open libflutter_engine.so...\n", dlerror());
+         }
+     } else if (flutterpi.flutter.runtime_mode == kDebug) {
+-        libflutter_engine_handle = dlopen("libflutter_engine.so.debug", RTLD_LOCAL | RTLD_NOW);
++        libflutter_engine_handle = dlopen("libflutter_engine.so", RTLD_LOCAL | RTLD_NOW);
+         if (libflutter_engine_handle == NULL) {
+             LOG_ERROR("[flutter-pi] Warning: Could not load libflutter_engine.so.debug: %s. Trying to open libflutter_engine.so...\n", dlerror());
+         }
