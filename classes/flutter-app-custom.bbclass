@@ -7,8 +7,7 @@ do_install() {
 
     if ${@bb.utils.contains('FLUTTER_RUNTIME', 'release', 'true', 'false', d)} || \
         ${@bb.utils.contains('FLUTTER_RUNTIME', 'profile', 'true', 'false', d)}; then
-        install -d ${D}${FLUTTER_INSTALL_DIR}/flutter_assets/lib
-        cp ${S}/${FLUTTER_APPLICATION_PATH}/libapp.so ${D}${FLUTTER_INSTALL_DIR}/flutter_assets/lib
+        cp ${S}/${FLUTTER_APPLICATION_PATH}/libapp.so ${D}${FLUTTER_INSTALL_DIR}/flutter_assets/
     fi
 
        
