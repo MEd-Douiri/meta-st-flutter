@@ -1,2 +1,3 @@
 
-SRC_URI += "file://0001-flutter-pi.patch"
+SRC_URI = "git://github.com/ardera/flutter-pi.git;protocol=https;branch=master \
+           file://0001-flutter-pi-update.patch"
