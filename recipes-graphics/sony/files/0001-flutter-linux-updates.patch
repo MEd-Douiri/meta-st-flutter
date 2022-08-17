@@ -1,0 +1,239 @@
+diff --git a/examples/flutter-drm-eglstream-backend/flutter_embedder_options.h b/examples/flutter-drm-eglstream-backend/flutter_embedder_options.h
+index 4c22913..f5d2198 100644
+--- a/examples/flutter-drm-eglstream-backend/flutter_embedder_options.h
++++ b/examples/flutter-drm-eglstream-backend/flutter_embedder_options.h
+@@ -27,8 +27,8 @@ class FlutterEmbedderOptions {
+ #elif defined(FLUTTER_TARGET_BACKEND_X11)
+     options_.AddWithoutValue("fullscreen", "f", "Always full-screen display",
+                              false);
+-    options_.AddInt("width", "w", "Window width", 1280, false);
+-    options_.AddInt("height", "h", "Window height", 720, false);
++    options_.AddInt("width", "w", "Window width", 800, false);
++    options_.AddInt("height", "h", "Window height", 399, false);
+ #else  // FLUTTER_TARGET_BACKEND_WAYLAND
+     options_.AddWithoutValue("onscreen-keyboard", "k",
+                              "Enable on-screen keyboard", false);
+@@ -36,8 +36,8 @@ class FlutterEmbedderOptions {
+                              "Enable window decorations", false);
+     options_.AddWithoutValue("fullscreen", "f", "Always full-screen display",
+                              false);
+-    options_.AddInt("width", "w", "Window width", 1280, false);
+-    options_.AddInt("height", "h", "Window height", 720, false);
++    options_.AddInt("width", "w", "Window width", 800, false);
++    options_.AddInt("height", "h", "Window height", 399, false);
+ #endif
+   }
+   ~FlutterEmbedderOptions() = default;
+@@ -122,8 +122,8 @@ class FlutterEmbedderOptions {
+   bool use_window_decoration_ = false;
+   flutter::FlutterViewController::ViewMode window_view_mode_ =
+       flutter::FlutterViewController::ViewMode::kNormal;
+-  int window_width_ = 1280;
+-  int window_height_ = 720;
++  int window_width_ = 800;
++  int window_height_ = 399;
+   flutter::FlutterViewController::ViewRotation window_view_rotation_ =
+       flutter::FlutterViewController::ViewRotation::kRotation_0;
+ };
+diff --git a/examples/flutter-drm-gbm-backend/flutter_embedder_options.h b/examples/flutter-drm-gbm-backend/flutter_embedder_options.h
+index 4c22913..f5d2198 100644
+--- a/examples/flutter-drm-gbm-backend/flutter_embedder_options.h
++++ b/examples/flutter-drm-gbm-backend/flutter_embedder_options.h
+@@ -27,8 +27,8 @@ class FlutterEmbedderOptions {
+ #elif defined(FLUTTER_TARGET_BACKEND_X11)
+     options_.AddWithoutValue("fullscreen", "f", "Always full-screen display",
+                              false);
+-    options_.AddInt("width", "w", "Window width", 1280, false);
+-    options_.AddInt("height", "h", "Window height", 720, false);
++    options_.AddInt("width", "w", "Window width", 800, false);
++    options_.AddInt("height", "h", "Window height", 399, false);
+ #else  // FLUTTER_TARGET_BACKEND_WAYLAND
+     options_.AddWithoutValue("onscreen-keyboard", "k",
+                              "Enable on-screen keyboard", false);
+@@ -36,8 +36,8 @@ class FlutterEmbedderOptions {
+                              "Enable window decorations", false);
+     options_.AddWithoutValue("fullscreen", "f", "Always full-screen display",
+                              false);
+-    options_.AddInt("width", "w", "Window width", 1280, false);
+-    options_.AddInt("height", "h", "Window height", 720, false);
++    options_.AddInt("width", "w", "Window width", 800, false);
++    options_.AddInt("height", "h", "Window height", 399, false);
+ #endif
+   }
+   ~FlutterEmbedderOptions() = default;
+@@ -122,8 +122,8 @@ class FlutterEmbedderOptions {
+   bool use_window_decoration_ = false;
+   flutter::FlutterViewController::ViewMode window_view_mode_ =
+       flutter::FlutterViewController::ViewMode::kNormal;
+-  int window_width_ = 1280;
+-  int window_height_ = 720;
++  int window_width_ = 800;
++  int window_height_ = 399;
+   flutter::FlutterViewController::ViewRotation window_view_rotation_ =
+       flutter::FlutterViewController::ViewRotation::kRotation_0;
+ };
+diff --git a/examples/flutter-external-texture-plugin/flutter_embedder_options.h b/examples/flutter-external-texture-plugin/flutter_embedder_options.h
+index 4c22913..f5d2198 100644
+--- a/examples/flutter-external-texture-plugin/flutter_embedder_options.h
++++ b/examples/flutter-external-texture-plugin/flutter_embedder_options.h
+@@ -27,8 +27,8 @@ class FlutterEmbedderOptions {
+ #elif defined(FLUTTER_TARGET_BACKEND_X11)
+     options_.AddWithoutValue("fullscreen", "f", "Always full-screen display",
+                              false);
+-    options_.AddInt("width", "w", "Window width", 1280, false);
+-    options_.AddInt("height", "h", "Window height", 720, false);
++    options_.AddInt("width", "w", "Window width", 800, false);
++    options_.AddInt("height", "h", "Window height", 399, false);
+ #else  // FLUTTER_TARGET_BACKEND_WAYLAND
+     options_.AddWithoutValue("onscreen-keyboard", "k",
+                              "Enable on-screen keyboard", false);
+@@ -36,8 +36,8 @@ class FlutterEmbedderOptions {
+                              "Enable window decorations", false);
+     options_.AddWithoutValue("fullscreen", "f", "Always full-screen display",
+                              false);
+-    options_.AddInt("width", "w", "Window width", 1280, false);
+-    options_.AddInt("height", "h", "Window height", 720, false);
++    options_.AddInt("width", "w", "Window width", 800, false);
++    options_.AddInt("height", "h", "Window height", 399, false);
+ #endif
+   }
+   ~FlutterEmbedderOptions() = default;
+@@ -122,8 +122,8 @@ class FlutterEmbedderOptions {
+   bool use_window_decoration_ = false;
+   flutter::FlutterViewController::ViewMode window_view_mode_ =
+       flutter::FlutterViewController::ViewMode::kNormal;
+-  int window_width_ = 1280;
+-  int window_height_ = 720;
++  int window_width_ = 800;
++  int window_height_ = 399;
+   flutter::FlutterViewController::ViewRotation window_view_rotation_ =
+       flutter::FlutterViewController::ViewRotation::kRotation_0;
+ };
+diff --git a/examples/flutter-video-player-plugin/flutter_embedder_options.h b/examples/flutter-video-player-plugin/flutter_embedder_options.h
+index 4c22913..f5d2198 100644
+--- a/examples/flutter-video-player-plugin/flutter_embedder_options.h
++++ b/examples/flutter-video-player-plugin/flutter_embedder_options.h
+@@ -27,8 +27,8 @@ class FlutterEmbedderOptions {
+ #elif defined(FLUTTER_TARGET_BACKEND_X11)
+     options_.AddWithoutValue("fullscreen", "f", "Always full-screen display",
+                              false);
+-    options_.AddInt("width", "w", "Window width", 1280, false);
+-    options_.AddInt("height", "h", "Window height", 720, false);
++    options_.AddInt("width", "w", "Window width", 800, false);
++    options_.AddInt("height", "h", "Window height", 399, false);
+ #else  // FLUTTER_TARGET_BACKEND_WAYLAND
+     options_.AddWithoutValue("onscreen-keyboard", "k",
+                              "Enable on-screen keyboard", false);
+@@ -36,8 +36,8 @@ class FlutterEmbedderOptions {
+                              "Enable window decorations", false);
+     options_.AddWithoutValue("fullscreen", "f", "Always full-screen display",
+                              false);
+-    options_.AddInt("width", "w", "Window width", 1280, false);
+-    options_.AddInt("height", "h", "Window height", 720, false);
++    options_.AddInt("width", "w", "Window width", 800, false);
++    options_.AddInt("height", "h", "Window height", 399, false);
+ #endif
+   }
+   ~FlutterEmbedderOptions() = default;
+@@ -122,8 +122,8 @@ class FlutterEmbedderOptions {
+   bool use_window_decoration_ = false;
+   flutter::FlutterViewController::ViewMode window_view_mode_ =
+       flutter::FlutterViewController::ViewMode::kNormal;
+-  int window_width_ = 1280;
+-  int window_height_ = 720;
++  int window_width_ = 800;
++  int window_height_ = 399;
+   flutter::FlutterViewController::ViewRotation window_view_rotation_ =
+       flutter::FlutterViewController::ViewRotation::kRotation_0;
+ };
+diff --git a/examples/flutter-wayland-client/flutter_embedder_options.h b/examples/flutter-wayland-client/flutter_embedder_options.h
+index 4c22913..f5d2198 100644
+--- a/examples/flutter-wayland-client/flutter_embedder_options.h
++++ b/examples/flutter-wayland-client/flutter_embedder_options.h
+@@ -27,8 +27,8 @@ class FlutterEmbedderOptions {
+ #elif defined(FLUTTER_TARGET_BACKEND_X11)
+     options_.AddWithoutValue("fullscreen", "f", "Always full-screen display",
+                              false);
+-    options_.AddInt("width", "w", "Window width", 1280, false);
+-    options_.AddInt("height", "h", "Window height", 720, false);
++    options_.AddInt("width", "w", "Window width", 800, false);
++    options_.AddInt("height", "h", "Window height", 399, false);
+ #else  // FLUTTER_TARGET_BACKEND_WAYLAND
+     options_.AddWithoutValue("onscreen-keyboard", "k",
+                              "Enable on-screen keyboard", false);
+@@ -36,8 +36,8 @@ class FlutterEmbedderOptions {
+                              "Enable window decorations", false);
+     options_.AddWithoutValue("fullscreen", "f", "Always full-screen display",
+                              false);
+-    options_.AddInt("width", "w", "Window width", 1280, false);
+-    options_.AddInt("height", "h", "Window height", 720, false);
++    options_.AddInt("width", "w", "Window width", 800, false);
++    options_.AddInt("height", "h", "Window height", 399, false);
+ #endif
+   }
+   ~FlutterEmbedderOptions() = default;
+@@ -122,8 +122,8 @@ class FlutterEmbedderOptions {
+   bool use_window_decoration_ = false;
+   flutter::FlutterViewController::ViewMode window_view_mode_ =
+       flutter::FlutterViewController::ViewMode::kNormal;
+-  int window_width_ = 1280;
+-  int window_height_ = 720;
++  int window_width_ = 800;
++  int window_height_ = 399;
+   flutter::FlutterViewController::ViewRotation window_view_rotation_ =
+       flutter::FlutterViewController::ViewRotation::kRotation_0;
+ };
+diff --git a/examples/flutter-x11-client/flutter_embedder_options.h b/examples/flutter-x11-client/flutter_embedder_options.h
+index 4c22913..f5d2198 100644
+--- a/examples/flutter-x11-client/flutter_embedder_options.h
++++ b/examples/flutter-x11-client/flutter_embedder_options.h
+@@ -27,8 +27,8 @@ class FlutterEmbedderOptions {
+ #elif defined(FLUTTER_TARGET_BACKEND_X11)
+     options_.AddWithoutValue("fullscreen", "f", "Always full-screen display",
+                              false);
+-    options_.AddInt("width", "w", "Window width", 1280, false);
+-    options_.AddInt("height", "h", "Window height", 720, false);
++    options_.AddInt("width", "w", "Window width", 800, false);
++    options_.AddInt("height", "h", "Window height", 399, false);
+ #else  // FLUTTER_TARGET_BACKEND_WAYLAND
+     options_.AddWithoutValue("onscreen-keyboard", "k",
+                              "Enable on-screen keyboard", false);
+@@ -36,8 +36,8 @@ class FlutterEmbedderOptions {
+                              "Enable window decorations", false);
+     options_.AddWithoutValue("fullscreen", "f", "Always full-screen display",
+                              false);
+-    options_.AddInt("width", "w", "Window width", 1280, false);
+-    options_.AddInt("height", "h", "Window height", 720, false);
++    options_.AddInt("width", "w", "Window width", 800, false);
++    options_.AddInt("height", "h", "Window height", 399, false);
+ #endif
+   }
+   ~FlutterEmbedderOptions() = default;
+@@ -122,8 +122,8 @@ class FlutterEmbedderOptions {
+   bool use_window_decoration_ = false;
+   flutter::FlutterViewController::ViewMode window_view_mode_ =
+       flutter::FlutterViewController::ViewMode::kNormal;
+-  int window_width_ = 1280;
+-  int window_height_ = 720;
++  int window_width_ = 800;
++  int window_height_ = 399;
+   flutter::FlutterViewController::ViewRotation window_view_rotation_ =
+       flutter::FlutterViewController::ViewRotation::kRotation_0;
+ };
+diff --git a/src/client_wrapper/include/flutter/dart_project.h b/src/client_wrapper/include/flutter/dart_project.h
+index 6c67c87..6d4a0d3 100644
+--- a/src/client_wrapper/include/flutter/dart_project.h
++++ b/src/client_wrapper/include/flutter/dart_project.h
+@@ -22,9 +22,9 @@ class DartProject {
+   // The path can either be absolute, or relative to the directory containing
+   // the running executable.
+   explicit DartProject(const std::wstring& path) {
+-    assets_path_ = path + L"/data/flutter_assets";
+-    icu_data_path_ = path + L"/data/icudtl.dat";
+-    aot_library_path_ = path + L"/lib/libapp.so";
++    assets_path_ = path;
++    icu_data_path_ = L"/usr/share/flutter/icudtl.dat";
++    aot_library_path_ = path + L"/libapp.so";
+   }
+ 
+   ~DartProject() = default;

@@ -1,5 +1,5 @@
 diff --git a/src/flutter-pi.c b/src/flutter-pi.c
-index 49b57bd..754c36a 100644
+index 69c8bdc..f91eefa 100644
 --- a/src/flutter-pi.c
 +++ b/src/flutter-pi.c
 @@ -132,7 +132,7 @@ EXAMPLES:\n\
@@ -7,7 +7,7 @@ index 49b57bd..754c36a 100644
    flutter-pi -o portrait_up ./my_app\n\
    flutter-pi -r 90 ./my_app\n\
 -  flutter-pi -d \"155, 86\" ./my_app\n\
-+  flutter-pi -d \"120, 60\" ./my_app\n\
++  flutter-pi -d \"150, 75\" ./my_app\n\
    flutter-pi -i \"/dev/input/event{0,1}\" -i \"/dev/input/event{2,3}\" /home/pi/helloworld_flutterassets\n\
    flutter-pi -i \"/dev/input/mouse*\" /home/pi/helloworld_flutterassets\n\
  \n\
@@ -17,12 +17,12 @@ index 49b57bd..754c36a 100644
                      //   it's probably the official 7 inch touchscreen.
 -                    flutterpi.display.width_mm = 155;
 -                    flutterpi.display.height_mm = 86;
-+                    flutterpi.display.width_mm = 120;
-+                    flutterpi.display.height_mm = 60;
++                    flutterpi.display.width_mm = 150;
++                    flutterpi.display.height_mm = 75;
                  } else if ((connector->connector->mmHeight % 10 == 0) &&
                              (connector->connector->mmWidth % 10 == 0)) {
                      // don't change anything.
-@@ -1839,17 +1839,17 @@ static int init_application(void) {
+@@ -1845,17 +1845,17 @@ static int init_application(void) {
  
      if (libflutter_engine_handle == NULL) {
          if (flutterpi.flutter.runtime_mode == kRelease) {
@@ -43,25 +43,21 @@ index 49b57bd..754c36a 100644
              if (libflutter_engine_handle == NULL) {
                  LOG_ERROR("Warning: Could not load libflutter_engine.so.debug. dlopen: %s. Trying to open libflutter_engine.so...\n", dlerror());
              }
-@@ -2298,24 +2298,24 @@ static bool setup_paths(void) {
-         return false;
+@@ -2305,7 +2305,7 @@ static bool setup_paths(void) {
      }
  
--    asprintf(&kernel_blob_path, "%s/kernel_blob.bin", flutterpi.flutter.asset_bundle_path);
+     asprintf(&kernel_blob_path, "%s/kernel_blob.bin", flutterpi.flutter.asset_bundle_path);
 -    asprintf(&app_elf_path, "%s/app.so", flutterpi.flutter.asset_bundle_path);
-+     asprintf(&kernel_blob_path, "%s/data/flutter_assets/kernel_blob.bin", flutterpi.flutter.asset_bundle_path);
-+     asprintf(&app_elf_path, "%s/lib/libapp.so", flutterpi.flutter.asset_bundle_path);
++    asprintf(&app_elf_path, "%s/libapp.so", flutterpi.flutter.asset_bundle_path);
  
      if (flutterpi.flutter.runtime_mode == kDebug) {
          if (!PATH_EXISTS(kernel_blob_path)) {
--            LOG_ERROR("Could not find \"kernel.blob\" file inside \"%s\", which is required for debug mode.\n", flutterpi.flutter.asset_bundle_path);
-+            LOG_ERROR("Could not find \"kernel.blob\" file inside \"%s/data/flutter_assets/\", which is required for debug mode.\n", flutterpi.flutter.asset_bundle_path);
-             return false;
+@@ -2314,14 +2314,14 @@ static bool setup_paths(void) {
          }
      } else if ((flutterpi.flutter.runtime_mode == kRelease) || (flutterpi.flutter.runtime_mode == kProfile)) {
          if (!PATH_EXISTS(app_elf_path)) {
 -            LOG_ERROR("Could not find \"app.so\" file inside \"%s\", which is required for release and profile mode.\n", flutterpi.flutter.asset_bundle_path);
-+            LOG_ERROR("Could not find \"libapp.so\" file inside \"%s/lib/\", which is required for release and profile mode.\n", flutterpi.flutter.asset_bundle_path);
++            LOG_ERROR("Could not find \"libapp.so\" file inside \"%s\", which is required for release and profile mode.\n", flutterpi.flutter.asset_bundle_path);
              return false;
          }
      }
