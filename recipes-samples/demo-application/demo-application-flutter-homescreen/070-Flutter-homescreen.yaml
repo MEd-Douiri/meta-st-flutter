@@ -1,0 +1,12 @@
+Application:
+    Name: Flutter
+    Description: Homescreen
+    Icon: application/flutter/pictures/ST1077_flutter.png
+    Board:
+        List: all
+    Type: script
+    Script:
+        Start: application/flutter/bin/launch_flutter_homescreen.sh
+    Action:
+        button_release_event: script_management
+        button_press_event: highlight_eventBox
