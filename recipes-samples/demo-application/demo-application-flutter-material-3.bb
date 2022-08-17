@@ -9,7 +9,6 @@ PV = "2.0"
 
 SRC_URI = " \
     file://launch_flutter_material_3.sh \
-    file://ST1099_flutter.png \
     file://090-Flutter-material-3.yaml \
     "
 
@@ -18,12 +17,9 @@ do_compile[noexec] = "1"
 
 do_install() {
     install -d ${D}${prefix}/local/demo/application/flutter/bin
-    install -d ${D}${prefix}/local/demo/application/flutter/pictures
 
     # install yaml file
     install -m 0644 ${WORKDIR}/*.yaml ${D}${prefix}/local/demo/application/
-    # install pictures
-    install -m 0644 ${WORKDIR}/*.png ${D}${prefix}/local/demo/application/flutter/pictures
     # script
     install -m 0755 ${WORKDIR}/*.sh ${D}${prefix}/local/demo/application/flutter/bin
 }

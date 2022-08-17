@@ -9,6 +9,7 @@ RDEPENDS_${PN} += "\
     ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'demo-application-flutter-animations', '', d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'demo-application-flutter-gallery', '', d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'demo-application-flutter-material-3', '', d)} \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'demo-application-flutter-homescreen', '', d)} \
     "
 
 AI_DEMO_APPLICATION = "${@bb.utils.contains('MACHINE_FEATURES', 'm4copro', 'ai-hand-char-reco-launcher', '', d)} "

@@ -9,7 +9,7 @@ PV = "2.0"
 
 SRC_URI = " \
     file://launch_flutter_animations.sh \
-    file://ST1088_flutter.png \
+    file://ST1077_flutter.png \
     file://070-Flutter-animations.yaml \
     "
 

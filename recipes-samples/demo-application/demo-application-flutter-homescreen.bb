@@ -1,4 +1,4 @@
-DESCRIPTION = "Add support of flutter animations on Demo Launcher"
+DESCRIPTION = "Add support of flutter Homescreen on Demo Launcher"
 HOMEPAGE = "wiki.st.com"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/BSD-3-Clause;md5=550794465ba0ec5312d6919e203a55f9"
@@ -8,8 +8,8 @@ DEPENDS = "demo-launcher event-gtk-player"
 PV = "2.0"
 
 SRC_URI = " \
-    file://launch_flutter_gallery.sh \
-    file://070-Flutter-gallery.yaml \
+    file://launch_flutter_homescreen.sh \
+    file://070-Flutter-homescreen.yaml \
     "
 
 do_configure[noexec] = "1"
